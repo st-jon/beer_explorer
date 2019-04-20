@@ -1,0 +1,53 @@
+.beerList__container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 80vh;
+    width: 100vw;
+    overflow: scroll;
+    background-color: $maroon;
+}
+
+.beer__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 10vh;
+    width: 28vw;
+    padding: 10px;
+    margin: 20px;
+    background-color: $grey;
+    box-shadow: -4px 5px 14px -5px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+.infos__container {
+    display: flex;
+}
+
+.text__container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.name {
+    font-size: $m-size;
+    color: $bleu;
+}
+
+.abv, .ibu {
+    font-size: $s-size;
+    color: $rouge
+}
+
+.icon {
+
+    height: 60px;
+    width: 60px;
+
+    &__default {
+        height: 60px;
+        width: 60px;
+    }
+}
