@@ -1,0 +1,38 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    height: 70vh;
+    width: 60vw;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, .6);
+    }  
+
+    &__picture {
+        margin-bottom: 30px;
+    }
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 20px;
+        width: auto;
+        cursor: pointer;
+    }
+}
+
