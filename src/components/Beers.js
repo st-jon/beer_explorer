@@ -19,10 +19,15 @@ const Beers = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const result = await axios(
-                `${PROXY}https://sandbox-api.brewerydb.com/v2/beers/?key=${KEY}`
-            )
-            return result
+            try {
+                const result = await axios(
+                    `${PROXY}https://sandbox-api.brewerydb.com/v2/beers/?key=${KEY}`
+                )
+                return result
+            }
+            catch {
+                throw new Error('Something went wrong')
+            } 
         }
         fetchData()
             .then(res => {
@@ -49,12 +54,17 @@ const Beers = () => {
 
 
     async function fetchMoreListItems(page) {
-        let result = await axios(
-            `${PROXY}https://sandbox-api.brewerydb.com/v2/beers/?key=${KEY}&p=${page}`
-        )
-        setBeerData([...beerData, ... result.data.data])
-        setCurrentPage(result.data.currentPage)
-        setIsFetching(false)
+        try {
+            let result = await axios(
+                `${PROXY}https://sandbox-api.brewerydb.com/v2/beers/?key=${KEY}&p=${page}`
+            )
+            setBeerData([...beerData, ... result.data.data])
+            setCurrentPage(result.data.currentPage)
+            setIsFetching(false)
+        }
+        catch {
+            throw new Error('Something went wrong')
+        }  
     }
 
     function handleScroll() {
@@ -66,13 +76,17 @@ const Beers = () => {
     }
 
     async function getBeerDetails(id) {
-        const beer = await axios(
-            `${PROXY}https://sandbox-api.brewerydb.com/v2/beer/${id}/?key=${KEY}`
-        )
-        setBeerDetails(beer.data.data)
-        setshowBeerDetails(true)
+        try {
+            const beer = await axios(
+                `${PROXY}https://sandbox-api.brewerydb.com/v2/beer/${id}/?key=${KEY}`
+            )
+            setBeerDetails(beer.data.data)
+            setshowBeerDetails(true)
+        }
+        catch {
+            throw new Error('Something went wrong')
+        }
     }
-    // console.log(beerDetails, showBeerDetails)
 
 
     // RETURN 
@@ -83,7 +97,7 @@ const Beers = () => {
                 <img className="loader" src="images/loader.gif"></img>
                 loading ...
             </div>
-            )
+        )
     } 
     else {
         return (
@@ -110,8 +124,7 @@ const Beers = () => {
                         </div>}
                 </content>
                 {showBeerDetails && <BeerDetails details={beerDetails} show={setshowBeerDetails}/>}
-            </div>
-            
+            </div> 
         )
     } 
 }
