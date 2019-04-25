@@ -10,6 +10,30 @@ body {
     background-color: white;
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 10vh;
+    font-size: $xl-size;
+
+    &__title {
+        color: black;
+        text-align: center; 
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;    
+        width: 30vw;
+        height: 10vh;
+        line-height: 13vh;
+    }
+
+    &__logo {
+        height: 10vh;
+        width: auto;
+    }
+}
+
 .app__container {
     display: flex;
     flex-direction: column;

@@ -18,8 +18,28 @@
     padding: 10px;
     margin: 20px;
     background-color: $grey;
+    border-radius: 15px;
     box-shadow: -4px 5px 14px -5px rgba(0,0,0,0.25);
     cursor: pointer;
+    transition: all .2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: -4px 10px 14px -5px rgba(0,0,0,0.3);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: -4px 5px 14px -5px rgba(0,0,0,0.25);
+    }
+
+    @include respond(tab-port) {
+        min-width: 30vw;
+    }
+
+    @include respond(phone) {
+        min-width: 50vw;
+    }
 }
 
 .infos__container {
@@ -35,6 +55,10 @@
 .name {
     font-size: $m-size;
     color: $bleu;
+    width: 18vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .abv, .ibu {
@@ -71,5 +95,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100vw;
 }
